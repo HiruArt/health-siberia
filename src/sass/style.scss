@@ -3,3 +3,1077 @@
 @import "_helper.scss";
 @import "mixins.scss";
 @import "main.scss";
+
+
+$red: #ff192f;
+$blue: #1b4655;
+$grey: #555555;
+
+*{
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, ul, ol, li{
+  padding: 0;
+  margin: 0;
+}
+
+ul, ol{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+//custom styles
+
+.site-container-wrap{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.site-container{
+  max-width: 1140px;
+  width: 100%;
+  padding: 0 15px
+}
+
+.site-btn{
+  background: $red;
+  transition: .3s;
+  box-shadow: 0px 2px 15px 0px rgba(255, 25, 47, 0.4);
+  width: 100%;
+  max-width: 255px;
+  display: flex;
+  justify-content: center;
+  border-radius: 50px;
+  border: 1px solid $red;
+
+  &:hover{
+    background: white;
+
+    span {
+      color: $red
+    }
+  }
+
+  span{
+    color: white;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 44px;
+    transition: .3s;
+  }
+
+  &--revers{
+    background: white;
+    box-shadow: none;
+
+    span{
+      color: $red;
+    }
+
+    &:hover{
+      background: $red;
+      box-shadow: 0px 2px 15px 0px rgba(255, 25, 47, 0.4);
+
+      span{
+        color: white;
+      }
+    }
+  }
+}
+
+.site-title{
+  text-align: center;
+  color: $blue;
+  font-size: 39px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.site-desc{
+  color: $grey;
+  text-align: center;
+  font-size: 15px;
+  line-height: 28px;
+  margin-bottom: 30px;
+}
+
+//custom styles end
+
+.header{
+
+  &__inner{
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__top{
+    display: flex;
+    margin: 0 -15px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+
+    @include for-992{
+      background: white;
+    }
+  }
+
+  &__top-logo{
+    padding: 0 15px;
+  }
+
+  &__top-logo-link{
+    display: flex;
+    max-width: 255px;
+    width: 100%;
+  }
+
+  &__top-logo-img{
+    width: 100%;
+  }
+
+  &__top-phone{
+    padding: 0 15px;
+    display: flex;
+
+    @include for-992{
+      display: none;
+    }
+  }
+
+  &__top-phone-ico{
+
+  }
+
+  &__top-phone-ico-i{
+    width: 36px;
+    height: 36px;
+    background: url("../img/ico/phone-plus.svg") center no-repeat;
+    background-size: contain;
+  }
+
+  &__top-phone-number{
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__top-phone-number-i{
+    font-size: 24px;
+    font-weight: 500;
+    color: #1e2528;
+    transition: .3s;
+
+    &:hover{
+      color: $red;
+    }
+  }
+
+  &__top-phone-number-txt{
+    font-size: 12px;
+    font-weight: 500;
+    color: #1e2528;
+  }
+
+  &__top-btn{
+    padding: 0 15px;
+    max-width: 255px;
+    width: 100%;
+
+    @include for-992{
+      display: none;
+    }
+  }
+
+  &__top-btn-i{
+
+  }
+
+  &__nav{
+
+    @include for-992{
+      background: white;
+      position: relative;
+      transition: .2s;
+      opacity: 0;
+      visibility: hidden;
+
+      &.show{
+        visibility: visible;
+        opacity: 1;
+      }
+
+      &:before{
+        content: '';
+        width: calc(100% + 30px);
+        height: 100%;
+        margin-left: -15px;
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: white;
+        z-index: 1;
+      }
+
+      &:after{
+        content: '';
+        position: absolute;
+        height: 20%;
+        bottom: 0;
+        left: 0;
+        margin-left: -15px;
+        width: calc(100% + 30px);
+        box-shadow: 0px 2px 15px 0px rgba(222, 39, 43, 0.4);
+        z-index: 0;
+      }
+    }
+  }
+
+  &__nav-inner{
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    @include for-992{
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &__top-menu{
+    display: none;
+    padding: 0 15px;
+
+    @include for-992{
+      display: flex;
+    }
+
+    &.show .header__top-menu-btn{
+      background-image: url("../img/ico/close.svg");
+    }
+  }
+
+  &__top-menu-btn{
+    height: 47px;
+    width: 47px;
+    display: flex;
+    border-radius: 50%;
+    background-color: $red;
+    background-image: url("../img/ico/burger.svg");
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: .1s;
+  }
+
+  &__nav-phone{
+    display: none;
+    width: 100%;
+    justify-content: flex-start;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid $red;
+    z-index: 2;
+
+    .header__top-phone{
+      padding: 0;
+    }
+
+    @include for-992{
+      display: flex;
+
+      .header__top-phone{
+        display: flex;
+      }
+    }
+  }
+}
+
+.nav{
+  display: flex;
+
+  @include for-992{
+    flex-direction: column;
+  }
+
+  &__item{
+    margin-right: 60px;
+    display: flex;
+    position: relative;
+    z-index: 2;
+
+    @include for-992 {
+      margin-right: 0;
+      flex-direction: column;
+
+      &.open {
+
+        .nav__subnav {
+          max-height: 500px;
+        }
+
+        .nav__link{
+          color: $red !important;
+        }
+
+        .nav__subnav-btn{
+          background-image: url("../img/ico/arrow-red.svg") !important;
+        }
+      }
+
+      &:first-child{
+        border-top: 1px solid $red;
+      }
+    }
+
+    &:last-child{
+      margin-right: 0;
+    }
+
+    &--parent{
+
+    }
+
+    &:hover{
+      background: white;
+
+      .nav__link{
+          color: $red;
+      }
+
+      .nav__subnav-btn{
+        background-image: url("../img/ico/arrow-red.svg");
+      }
+
+      .nav__subnav{
+        opacity: 1;
+        visibility: visible;
+        z-index: 2;
+      }
+
+      @include for-992{
+        .nav__subnav-btn{
+          background-image: url("../img/ico/arrow.svg");
+        }
+
+        .nav__link{
+          color: $blue;
+        }
+      }
+    }
+  }
+
+  &__link{
+    font-size: 18px;
+    font-weight: 600;
+    transition: .3s;
+    color: $blue;
+    z-index: 3;
+    position: relative;
+
+    &:hover{
+      color: $red;
+    }
+
+    @include for-992{
+      line-height: 40px;
+      width: fit-content;
+    }
+  }
+
+  &__subnav-btn{
+    cursor: pointer;
+    width: 16px;
+    height: 100%;
+    background-image: url("../img/ico/arrow.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: .1s;
+    margin-left: 10px;
+    z-index: 3;
+    position: relative;
+
+    @include for-992 {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 40px;
+
+      &:after{
+        content: '';
+        position: absolute;
+        left: -15px;
+        top: 0;
+        height: 100%;
+        width: 46px;
+      }
+    }
+  }
+
+  &__subnav{
+    position: absolute;
+    transition: .3s;
+    top: 45px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+    width: 100%;
+
+    @include for-992 {
+      position: static;
+      visibility: visible;
+      opacity: 1;
+      padding-left: 20px;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: calc(100% + 60px);
+      margin-left: -30px;
+      height: calc(100% + 60px);
+      margin-top: -60px;
+      background: white;
+      z-index: 1;
+      border-radius: 21px;
+      box-shadow: 0px 2px 15px 0px rgba(255, 25, 47, 0.4);
+
+      @include for-992 {
+        display: none;
+      }
+    }
+  }
+
+  &__subnav-item{
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+
+
+    &:last-child{
+      margin-bottom: 15px;
+
+      @include for-992 {
+        margin-bottom: 0;
+      }
+    }
+
+    @include for-992 {
+      margin-bottom: 0;
+    }
+  }
+
+  &__subnav-link{
+    font-size: 15px;
+    color: $blue;
+    transition: .3s all;
+    max-width: 195px;
+    display: flex;
+
+    &:hover{
+      color:  $red;
+    }
+
+    @include for-992{
+      line-height: 24px;
+    }
+  }
+
+}
+
+.page__wrapper{
+  position: relative;
+}
+
+.page-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 830px;
+  width: 100%;
+  height: 840px;
+  z-index: -1;
+
+  @include for-1800{
+    max-width: 640px;
+  }
+
+  @include for-1600{
+    max-width: 475px;
+    height: 725px;
+  }
+
+  &__inner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-size: 100%;
+
+    @include for-1600{
+      background-size: auto;
+    }
+  }
+
+  &__img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__border{
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+  }
+}
+
+.top-block{
+
+  &__inner{
+    padding-top: 100px;
+    min-height: 700px;
+  }
+
+  &__content{
+    max-width: 555px;
+    width: 100%;
+
+    &--red {
+      color: $red;
+      font-weight: 500;
+      font-size: 15px;
+      text-transform: uppercase;
+    }
+  }
+
+  &__title, h1{
+    font-size: 49px;
+    font-weight: 500;
+    color: $blue;
+    margin: 30px 0;
+    line-height: 65px;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 27px;
+    color: $grey;
+    margin-bottom: 30px;
+  }
+
+  &__btn{
+    margin: 15px 0;
+  }
+
+}
+
+.activities{
+
+  &__inner{
+
+  }
+
+  &__title{
+
+  }
+
+  &__desc{
+
+  }
+
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+  }
+
+  &__item{
+    padding: 0 15px;
+    width: 25%;
+    margin-bottom: 30px;
+
+    @include for-992{
+      width: 33.33333%
+    }
+  }
+
+  &__content{
+    padding: 15px 15px 30px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e3e6ea;
+    transition: .3s;
+    height: 100%;
+
+    &:hover{
+        box-shadow: 0px 15px 40px 0px rgba(4, 11, 49, 0.1);
+      border-color: transparent;
+    }
+  }
+
+  &__img{
+    width: 100%;
+    height: 230px;
+  }
+
+  &__img-i{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__name{
+    padding: 30px 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $blue;
+    font-weight: 600;
+    font-size: 21px;
+  }
+
+  &__btn{
+
+  }
+
+  &__btn-i{
+
+  }
+
+}
+
+.half-block{
+  position: relative;
+
+  &__bg{
+    position: absolute;
+    left: 0;
+    top: -180px;
+    width: 45%;
+    height: 1105px;
+    z-index: -1;
+
+    &--img{
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__inner{
+
+  }
+
+  &__content{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    max-width: 550px;
+    width: 100%;
+    margin-left: auto;
+
+    @include for-992{
+      max-width: 100%;
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+  }
+
+}
+
+.txt-block{
+
+  &__title{
+    color: $blue;
+    font-size: 39px;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+  
+  p{
+    color: $grey;
+    margin-bottom: 15px;
+
+    strong{
+      color: #333333;
+    }
+
+    a{
+      color: $red;
+      font-weight: 600;
+      font-size: 18px;
+      transition: .3s;
+      position: relative;
+      display: inline-block;
+
+      &:hover{
+        color: $blue;
+      }
+    }
+  }
+
+  &__ico-list{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -15px;
+    padding-top: 15px;
+  }
+
+  &__ico-item{
+    width: 33.33333%;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  &__ico-i{
+    width: 60px;
+  }
+
+  &__ico-txt{
+    text-align: center;
+    color: #333333;
+    font-weight: 600;
+    padding-top: 15px;
+  }
+
+}
+
+.why-are-we{
+
+  &__inner{
+
+  }
+
+  &__title{
+
+  }
+
+  &__desc{
+
+  }
+
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+    padding-top: 30px;
+  }
+
+  &__item{
+    width: 33.33333%;
+    padding: 0 15px;
+    margin-bottom: 50px;
+
+    @include for-1600{
+      margin-bottom: 30px;
+    }
+
+    @include for-992{
+      width: 50%;
+    }
+
+    @include for-550{
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__content{
+    display: flex;
+  }
+
+  &__ico{
+    width: 115px;
+    position: relative;
+    margin-right: -10px;
+
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #ebf8fd;
+
+      @include for-992{
+        width: 75px;
+        height: 75px;
+      }
+
+      @include for-550{
+        width: 55px;
+        height: 55px;
+      }
+    }
+  }
+
+  &__ico-i{
+    font-size: 200px;
+    color: $blue;
+    font-weight: 600;
+    line-height: 150px;
+    position: relative;
+    z-index: 2;
+
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 2px $blue;
+
+    @include for-992{
+      font-size: 130px;
+      line-height: 100px;
+    }
+
+    @include for-550{
+      font-size: 110px;
+      line-height: 100px;
+    }
+  }
+
+  &__info{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__name{
+    color: $blue;
+    font-size: 21px;
+    font-weight: 600;
+    padding: 0 10px 0 20px;
+  }
+
+  &__txt{
+    color: grey;
+    padding: 20px 10px 20px 20px;
+    background: url("../img/why-are-we-bg.png");
+  }
+
+}
+
+.about-center{
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+.footer{
+  background: $blue;
+
+  &__inner{
+    display: flex;
+  }
+
+  &__list{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -15px;
+
+    @include for-1100{
+      flex-wrap: wrap;
+    }
+  }
+
+  &__column{
+    padding: 30px 15px;
+    display: flex;
+    height: 100%;
+    align-items: center;
+
+    @include for-1100{
+      width: 50%;
+      padding: 15px;
+      height: auto;
+      justify-content: center;
+    }
+
+    @include for-768{
+      width: 100%;
+    }
+  }
+
+  &__logo{
+    display: flex;
+    max-width: 255px;
+    width: 100%;
+  }
+
+  &__logo-img{
+    width: 100%;
+  }
+
+  &__address{
+    display: flex;
+    align-items: center;
+
+    &:hover{
+
+      .footer__address-ico{
+        background-image: url("../img/ico/pin.svg");
+      }
+    }
+  }
+
+  &__address-ico{
+    width: 28px;
+    height: 36px;
+    transition: .3s;
+    background-image: url("../img/ico/pin-white.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-right: 13px;
+  }
+
+  &__address-txt{
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  &__social-list{
+    display: flex;
+    margin: 0 -15px;
+    justify-content: space-between;
+  }
+
+  &__social-item{
+    padding: 0 15px;
+    width: 25%;
+  }
+
+  &__social-link{
+    width: 36px;
+    height: 36px;
+    display: flex;
+    transition: .3s;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &--vk{
+      background-image: url("../img/ico/vk-white.svg");
+
+      &:hover{
+        background-image: url("../img/ico/vk.svg");
+      }
+    }
+
+    &--fb{
+      background-image: url("../img/ico/fb-white.svg");
+
+      &:hover{
+        background-image: url("../img/ico/fb.svg");
+      }
+    }
+
+    &--inst{
+      background-image: url("../img/ico/inst-white.svg");
+
+      &:hover{
+        background-image: url("../img/ico/inst.svg");
+      }
+    }
+
+    &--ok{
+      background-image: url("../img/ico/ok-white.svg");
+
+      &:hover{
+        background-image: url("../img/ico/ok.svg");
+      }
+    }
+  }
+
+  &__phone{
+    display: flex;
+
+    &:hover{
+
+      .footer__phone-ico-i{
+        background-image: url("../img/ico/phone-plus.svg");
+      }
+    }
+
+    @include for-768{
+      transform: translateX(15px);
+    }
+  }
+
+  &__phone-ico{
+
+  }
+
+  &__phone-ico-i{
+    width: 36px;
+    height: 36px;
+    background-image: url("../img/ico/phone-plus-white.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: .3s;
+  }
+
+  &__phone-number{
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__phone-number-i{
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+    transition: .3s;
+
+    &:hover{
+      color: $red;
+    }
+
+    @include for-768{
+      font-size: 21px;
+    }
+  }
+
+  &__phone-number-txt{
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+  }
+
+}

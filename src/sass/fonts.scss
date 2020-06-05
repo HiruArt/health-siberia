@@ -1,9 +1,26 @@
 @font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Regular.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Poppins-Regular.woff') format('woff'),
-  url('../fonts/Poppins-Regular.ttf')  format('truetype'),
-  url('../fonts/Poppins-Regular.svg#Poppins-Regular') format('svg');
-  font-weight: normal;
+  font-family: 'Roboto';
+  src:
+    url('../fonts/Roboto-Regular.eot') format('eot'),
+    url('../fonts/Roboto-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src:
+    url('../fonts/Roboto-Medium.eot') format('eot'),
+    url('../fonts/Roboto-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src:
+    url('../fonts/Roboto-Bold.eot') format('eot'),
+    url('../fonts/Roboto-Bold.woff') format('woff');
+  font-weight: 600;
   font-style: normal;
 }

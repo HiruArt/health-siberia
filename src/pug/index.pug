@@ -16,21 +16,24 @@ block content
 	div.main-wrap
 
 		.page-bg
-			.page-bg-img(style="background-image: url('');")
+			.page-bg__inner
+				.page-bg__img(style="background-image: url('./img/top-bg-2.jpg');")
+				.page-bg__border(style="background-image: url('./img/top-bg-border.png');")
 
-		.top-block
-			.top-block__inner
+		.site-container-wrap.top-block
+			.site-container.top-block__inner
 				.top-block__content
-					span Наркологическая клиника в Новосибирске «Здоровье Сибири»
+					span.top-block__content--red Наркологическая клиника в Новосибирске «Здоровье Сибири»
 					h1.top-block__title МЕДИЦИНСКИЙ ЦЕНТР ПСИХИАТРИИ И НАРКОЛОГИИ
 					p Эффективные методы лечения алкоголизма и наркомании. Услуги по выводу из запоя, кодирование от алкоголизма, реабилитация наркозависимых и алкоголиков.
-					a(href="#").site-btn.top-block__btn Подробнее
+					a(href="#").site-btn.top-block__btn
+						span Подробнее
 
 
-		.activities
-			.activities__inner
-				.activities__title Направления деятельности
-				.activities__desc Медицинский центр “Здоровье сибири” занимается лечением и реабилитацией больных наркоманией уже более 15 лет. <br>Более 6000 пациентов успешно избавились от зависимости.
+		.site-container-wrap.activities
+			.site-container.activities__inner
+				.site-title.activities__title Направления деятельности
+				.site-desc.activities__desc Медицинский центр “Здоровье сибири” занимается лечением и реабилитацией больных наркоманией уже более 15 лет. <br>Более 6000 пациентов успешно избавились от зависимости.
 				.activities__list
 					.activities__item
 						.activities__content
@@ -38,79 +41,150 @@ block content
 								img(src="./img/activities01.jpg" alt="img").activities__img-i
 							.activities__name Лечение алкоголизма
 							.activities__btn
-								a(href="#").site-btn.activities__btn-i Подробнее
+								a(href="#").site-btn.site-btn--revers.activities__btn-i
+									span Подробнее
 					.activities__item
 						.activities__content
 							.activities__img
 								img(src="./img/activities02.jpg" alt="img").activities__img-i
 							.activities__name Вывод из запоя
 							.activities__btn
-								a(href="#").site-btn.activities__btn-i Подробнее
+								a(href="#").site-btn.site-btn--revers.activities__btn-i
+									span Подробнее
 					.activities__item
 						.activities__content
 							.activities__img
 								img(src="./img/activities03.jpg" alt="img").activities__img-i
 							.activities__name Кодирование
 							.activities__btn
-								a(href="#").site-btn.activities__btn-i Подробнее
+								a(href="#").site-btn.site-btn--revers.activities__btn-i
+									span Подробнее
 					.activities__item
 						.activities__content
 							.activities__img
 								img(src="./img/activities04.jpg" alt="img").activities__img-i
 							.activities__name Нарколог на дом
 							.activities__btn
-								a(href="#").site-btn.activities__btn-i Подробнее
+								a(href="#").site-btn.site-btn--revers.activities__btn-i
+									span Подробнее
 					.activities__item
 						.activities__content
 							.activities__img
 								img(src="./img/activities05.jpg" alt="img").activities__img-i
 							.activities__name Стационар
 							.activities__btn
-								a(href="#").site-btn.activities__btn-i Подробнее
+								a(href="#").site-btn.site-btn--revers.activities__btn-i
+									span Подробнее
 					.activities__item
 						.activities__content
 							.activities__img
 								img(src="./img/activities06.jpg" alt="img").activities__img-i
 							.activities__name Лечение наркомании
 							.activities__btn
-								a(href="#").site-btn.activities__btn-i Подробнее
+								a(href="#").site-btn.site-btn--revers.activities__btn-i
+									span Подробнее
 					.activities__item
 						.activities__content
 							.activities__img
 								img(src="./img/activities07.jpg" alt="img").activities__img-i
 							.activities__name Снятие ломки
 							.activities__btn
-								a(href="#").site-btn.activities__btn-i Подробнее
+								a(href="#").site-btn.site-btn--revers.activities__btn-i
+									span Подробнее
 					.activities__item
 						.activities__content
 							.activities__img
 								img(src="./img/activities08.jpg" alt="img").activities__img-i
 							.activities__name Реабилитация
 							.activities__btn
-								a(href="#").site-btn.activities__btn-i Подробнее
+								a(href="#").site-btn.site-btn--revers.activities__btn-i
+									span Подробнее
 
-		.half-block
+		.site-container-wrap.half-block
 			.half-block__bg
-				.half-block__bg-img(style="background-image: url('');")
+				.half-block__bg--img(style="background-image: url('./img/half-block-bg.png');")
 
-			.half-block__content
+			.site-container.half-block__inner
+				.half-block__content
+					.txt-block
+						h2.txt-block__title Наркологическая клиника в Новосибирске и Новосибирской области
+						p "Здоровье Сибири" - это современная наркологическая клиника, в состав которой входят несколько подразделений:
+						.txt-block__ico-list
+							.txt-block__ico-item
+								img(src="./img/ico/bed.svg" alt="alt").txt-block__ico-i
+								.txt-block__ico-txt Стационарное отделение
+							.txt-block__ico-item
+								img(src="./img/ico/hand.svg" alt="alt").txt-block__ico-i
+								.txt-block__ico-txt Реабилитационное отделение
+							.txt-block__ico-item
+								img(src="./img/ico/avto.svg" alt="alt").txt-block__ico-i
+								.txt-block__ico-txt Выездное отделение помощи на дому
+						p
+							strong Находимся по адресу: г. Новосибирск, ул. Нижегородская, д.280.
+						p Мы используем в работе только самое современное оборудование и медикаменты, предоставляем пациентам комфортабельные палаты. Все сотрудники нашего центра: наркологи, психологи, психотерапевты, а также санитарный персонал работают в штате, имеют высшую медицинскую категорию и стаж работы более 10 лет.
+						p Лечение от наркомании и алкоголизма сложный и длительный процесс, результат которого будет зависеть от компетенции врачей, желания пациента, а также его поддержки родными и близкими. Наш медицинский центр ставит приоритетной целью не просто снятие острой фазы зависимости, но и разработку максимально эффективной индивидуальной реабилитационно-психологической программы для каждого пациента, чтобы исключить рецидивы и адаптировать его к дальнейшей трезвой жизни. Мы собрали в своем штате лучших специалистов в области наркологии и психотерапии, для реализации данной задачи. Мы обладаем собственным автопарком и можем оказать необходимую помощь круглосуточно, организовав выезд в любой, в том числе и отдаленный, район Новосибирска.
+						p
+							strong Звоните в любое время по телефону горячей линии: &nbsp
+							a(href="tel:+83833314050") 8 (383) 331-40-50
+
+		.site-container-wrap.why-are-we
+			.site-container.why-are-we__inner
+				.site-title.why-are-we__title Почему медицинский центр “Здоровье сибири”?
+				.site-desc.why-are-we__desc Наша цель — облегчить вашу жизнь, поэтому мы используем:
+				.why-are-we__list
+					.why-are-we__item
+						.why-are-we__content
+							.why-are-we__ico
+								.why-are-we__ico-i 1
+							.why-are-we__info
+								.why-are-we__name Научный подход
+								.why-are-we__txt Современные стандарты фармакотерапии и методики психотерапии.
+					.why-are-we__item
+						.why-are-we__content
+							.why-are-we__ico
+								.why-are-we__ico-i 2
+							.why-are-we__info
+								.why-are-we__name Интенсивное лечение
+								.why-are-we__txt Интенсивная терапия и уход в стационаре с применением надежных препаратов.
+					.why-are-we__item
+						.why-are-we__content
+							.why-are-we__ico
+								.why-are-we__ico-i 3
+							.why-are-we__info
+								.why-are-we__name Точная диагностика
+								.why-are-we__txt Каждому нашему пациенту уделяется особое внимание экспертного уровня.
+					.why-are-we__item
+						.why-are-we__content
+							.why-are-we__ico
+								.why-are-we__ico-i 4
+							.why-are-we__info
+								.why-are-we__name Госпитализация
+								.why-are-we__txt Лечение в стационаре длительностью до 3-х недель, дневной стационар.
+					.why-are-we__item
+						.why-are-we__content
+							.why-are-we__ico
+								.why-are-we__ico-i 5
+							.why-are-we__info
+								.why-are-we__name Комфортные условия
+								.why-are-we__txt Маломестные палаты, оборудованные санузлами, телевизором. Хорошее питание.
+					.why-are-we__item
+						.why-are-we__content
+							.why-are-we__ico
+								.why-are-we__ico-i 6
+							.why-are-we__info
+								.why-are-we__name Сопровождение семьи
+								.why-are-we__txt Помощь родственникам пациентов с созависимым поведением. Реабилитация.
+
+		.site-container-wrap.about-center
+			.site-container.about-center__inner
+				.site-title.about-center__title О центре
+				.site-desc.about-center__desc В нашей наркологической клинике можно получить анонимную и высокопрофессиональную помощь.
 				.txt-block
-					h2.txt-block__title Наркологическая клиника в Новосибирске и Новосибирской области
-					p "Здоровье Сибири" - это современная наркологическая клиника, в состав которой входят несколько подразделений:
-					.txt-block__ico-list
-						.txt-block__ico-item
-							img(src="./img/ico/bed.svg" alt="alt").txt-block__ico-i
-							.txt-block__ico-txt Стационарное отделение
-						.txt-block__ico-item
-							img(src="./img/ico/hand.svg" alt="alt").txt-block__ico-i
-							.txt-block__ico-txt Реабилитационное отделение
-						.txt-block__ico-item
-							img(src="./img/ico/avto.svg" alt="alt").txt-block__ico-i
-							.txt-block__ico-txt Выездное отделение помощи на дому
-					p
-						strong Находимся по адресу: г. Новосибирск, ул. Нижегородская, д.280.
-					p Мы используем в работе только самое современное оборудование и медикаменты, предоставляем пациентам комфортабельные палаты. Все сотрудники нашего центра: наркологи, психологи, психотерапевты, а также санитарный персонал работают в штате, имеют высшую медицинскую категорию и стаж работы более 10 лет.
-					p Лечение от наркомании и алкоголизма сложный и длительный процесс, результат которого будет зависеть от компетенции врачей, желания пациента, а также его поддержки родными и близкими. Наш медицинский центр ставит приоритетной целью не просто снятие острой фазы зависимости, но и разработку максимально эффективной индивидуальной реабилитационно-психологической программы для каждого пациента, чтобы исключить рецидивы и адаптировать его к дальнейшей трезвой жизни. Мы собрали в своем штате лучших специалистов в области наркологии и психотерапии, для реализации данной задачи. Мы обладаем собственным автопарком и можем оказать необходимую помощь круглосуточно, организовав выезд в любой, в том числе и отдаленный, район Новосибирска.
-					p
-						strong Звоните в любое время по телефону горячей линии:
-						a(href="tel:+83833314050") 8 (383) 331-40-50
+					p Наркомания и алкогольная зависимость — тяжелейшие заболевания, вызывающие не только проблемы на физическом уровне. Данные недуги полностью изменяют жизнь больных, их психическое состояние, разрушительно воздействуют на социальную и личную стороны жизни. Единственный способ избавиться от пагубной привычки, обратиться в наркологическую клинику.
+					p Наша клиника состоит из стационарного отделения с прекрасным ремонтом и внимательным персоналом, а так же реабилитационного отделения, где применяются самые современные и успешные методики, и где процесс выздоровления проходит максимально эффективно. С вами постоянно рядом будет команда опытных врачей по лечению и реабилитации зависимостей.
+					p В нашей наркологической клинике можно получить анонимную и высокопрофессиональную помощь. Вы можете вызвать нарколога на дом для вывода из запоя или снятия ломки, так же врач бесплатно проконсультируют о дальнейших методах лечения.
+					p Если вам неловко перед близкими и вы боитесь сорваться после отъезда доктора, вы можете лечь в наш стационар и пройти те же процедуры, так же с вами будет заниматься психотерапевт. После снятия похмельного синдрома или ломки самый эффективный путь это реабилитационное отделение, если нет возможности, то с вами будет заниматься психотерапевт по индивидуальной программе, а так же мы можем провести кодировку от алкоголизма на дому или в нашем стационаре.
+					p После необходимого курса лечения вы получаете индивидуальную программу по адаптации, мы не бросаем своих пациентов еще долгое время.
+
+
+

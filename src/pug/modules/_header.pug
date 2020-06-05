@@ -1,13 +1,13 @@
 header
-  .header
-    .header__inner
+  .site-container-wrap.header
+    .site-container.header__inner
       .header__top
         .header__top-logo
           a(href="#").header__top-logo-link
             img(src="./img/logo.png" alt="logo").header__top-logo-img
         .header__top-phone
           .header__top-phone-ico
-            img(src="./img/ico/phone-plus.svg" alt="img").header__top-phone-ico-i
+            .header__top-phone-ico-i
           .header__top-phone-number
             a(href="tel:+73833314050").header__top-phone-number-i +7 (383) 331-40-50
             .header__top-phone-number-txt Анонимная консультация нарколога
@@ -15,6 +15,8 @@ header
           a(href="javascript:void(0);").site-btn.header__top-btn-i
             span Заказать звонок
 
+        .header__top-menu
+          a(href="javascript:void(0);").header__top-menu-btn#menu-btn
       .header__nav
         .header__nav-inner
           .nav
@@ -54,6 +56,14 @@ header
                   a(href="#").nav__subnav-link Реабилитация алкоголиков
             .nav__item
               a(href="#").nav__link Контакты
+        .header__nav-phone
+          .header__top-phone
+            .header__top-phone-ico
+              .header__top-phone-ico-i
+            .header__top-phone-number
+              a(href="tel:+73833314050").header__top-phone-number-i +7 (383) 331-40-50
+              .header__top-phone-number-txt Анонимная консультация нарколога
+
 
 
 

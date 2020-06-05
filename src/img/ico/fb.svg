@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="36px" height="36px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512; fill: #ff192f;" xml:space="preserve">
+<style type="text/css">
+	.qwerty{fill:none;stroke:#ff192f;stroke-width:20;stroke-miterlimit:10;}
+</style>
+<path d="M386,53c0,5.5-4.5,10-10,10s-10-4.5-10-10c0-5.5,4.5-10,10-10S386,47.5,386,53L386,53z M386,53"/>
+<path d="M462,0H50C22.4,0,0,22.4,0,50v412c0,27.6,22.4,50,50,50h412c27.6,0,50-22.4,50-50V50C512,22.4,489.6,0,462,0L462,0z
+	 M492,462c0,16.5-13.5,30-30,30H50c-16.5,0-30-13.5-30-30V50c0-16.5,13.5-30,30-30h412c16.5,0,30,13.5,30,30V462z M492,462"/>
+<path d="M136,63h200c5.5,0,10-4.5,10-10c0-5.5-4.5-10-10-10H136c-5.5,0-10,4.5-10,10C126,58.5,130.5,63,136,63L136,63z M136,63"/>
+<path class="qwerty" d="M147.5,311.6c-43.1-12-75.4-46.7-75.4-96.9c0-62.2,51.4-98.1,106.5-98.1h262v75.4H287.5v58.6H406v73H287.5
+	v104.1h-81.4V189.6h-28.7c-13.2,0-28.7,8.4-28.7,25.1c0,13.2,8.4,21.5,19.1,26.3L147.5,311.6z"/>
+</svg>

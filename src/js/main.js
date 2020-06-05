@@ -17,6 +17,16 @@ $(document).ready(function(){
 	// 	src: 'data-blazy'
 	// });
 
+
+  $('#menu-btn').click(function (e) {
+    $(this).parent().toggleClass('show');
+    $('.header__nav').toggleClass('show');
+  });
+
+  $('.nav__subnav-btn').click(function(e){
+    $(this).closest('.nav__item').toggleClass('open');
+  });
+
 });
 
 
