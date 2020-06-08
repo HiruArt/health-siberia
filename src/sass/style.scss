@@ -32,6 +32,10 @@ a{
 
 //custom styles
 
+.boh{
+  overflow: hidden;
+}
+
 .site-container-wrap{
   display: flex;
   justify-content: center;
@@ -41,7 +45,11 @@ a{
 .site-container{
   max-width: 1140px;
   width: 100%;
-  padding: 0 15px
+  padding: 0 15px;
+
+  @include for-1200{
+    padding: 0 15px;
+  }
 }
 
 .site-btn{
@@ -97,6 +105,11 @@ a{
   font-size: 39px;
   font-weight: 500;
   margin-bottom: 30px;
+
+  @include for-768{
+    font-size: 28px;
+    line-height: 32px;
+  }
 }
 
 .site-desc{
@@ -105,11 +118,22 @@ a{
   font-size: 15px;
   line-height: 28px;
   margin-bottom: 30px;
+
+  @include for-768{
+    line-height: 20px;
+  }
 }
 
 //custom styles end
 
 .header{
+
+  @include for-992{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+  }
 
   &__inner{
     display: flex;
@@ -125,6 +149,7 @@ a{
 
     @include for-992{
       background: white;
+      padding: 15px 0;
     }
   }
 
@@ -136,6 +161,10 @@ a{
     display: flex;
     max-width: 255px;
     width: 100%;
+
+    @include for-992{
+      max-width: 200px;
+    }
   }
 
   &__top-logo-img{
@@ -207,10 +236,16 @@ a{
       transition: .2s;
       opacity: 0;
       visibility: hidden;
+      z-index: -1;
+      max-height: 0;
+      overflow: hidden;
 
       &.show{
         visibility: visible;
         opacity: 1;
+        z-index: 1;
+        max-height: 1000px;
+        overflow: inherit;
       }
 
       &:before{
@@ -305,6 +340,9 @@ a{
 
   @include for-992{
     flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: calc(100vh - 171px);
   }
 
   &__item{
@@ -341,12 +379,8 @@ a{
       margin-right: 0;
     }
 
-    &--parent{
-
-    }
-
     &:hover{
-      background: white;
+      //background: white;
 
       .nav__link{
           color: $red;
@@ -407,8 +441,8 @@ a{
     @include for-992 {
       position: absolute;
       top: 0;
-      right: 0;
       height: 40px;
+      right: 10px;
 
       &:after{
         content: '';
@@ -501,6 +535,14 @@ a{
   position: relative;
 }
 
+.page__content{
+  min-height: calc(100vh - 258px);
+
+  @include for-992{
+    margin-top: 76px;
+  }
+}
+
 .page-bg {
   position: absolute;
   top: 0;
@@ -519,6 +561,13 @@ a{
     height: 725px;
   }
 
+  @include for-992{
+    max-width: 100%;
+    height: 420px;
+    opacity: .2;
+    overflow: hidden;
+  }
+
   &__inner{
     width: 100%;
     height: 100%;
@@ -527,6 +576,7 @@ a{
 
     @include for-1600{
       background-size: auto;
+      transform: translateX(15px);
     }
   }
 
@@ -537,8 +587,13 @@ a{
     display: flex;
     width: 100%;
     height: 100%;
-    background-position: center;
+    background-position: right center;
     background-repeat: no-repeat;
+
+    @include for-992{
+      background-size: cover;
+      background-position: right top;
+    }
   }
 
   &__border{
@@ -550,6 +605,11 @@ a{
     height: 100%;
     background-position: left bottom;
     background-repeat: no-repeat;
+
+    @include for-992{
+      background-size: cover;
+      background-position: left bottom;
+    }
   }
 }
 
@@ -558,17 +618,33 @@ a{
   &__inner{
     padding-top: 100px;
     min-height: 700px;
+
+    @include for-992{
+      min-height: 475px;
+      padding-top: 40px;
+    }
   }
 
   &__content{
     max-width: 555px;
     width: 100%;
 
+    @include for-768{
+      max-width: 100%;
+    }
+
     &--red {
       color: $red;
       font-weight: 500;
       font-size: 15px;
       text-transform: uppercase;
+      width: 100%;
+
+      @include for-768{
+        font-size: 14px;
+        text-align: center;
+        display: inline-block;
+      }
     }
   }
 
@@ -578,6 +654,12 @@ a{
     color: $blue;
     margin: 30px 0;
     line-height: 65px;
+
+    @include for-768{
+      font-size: 30px;
+      line-height: 36px;
+      text-align: center;
+    }
   }
 
   p {
@@ -589,6 +671,12 @@ a{
 
   &__btn{
     margin: 15px 0;
+
+    @include for-768{
+      margin: 0 auto;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
   }
 
 }
@@ -597,6 +685,10 @@ a{
 
   &__inner{
 
+    @include for-992{
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
   }
 
   &__title{
@@ -611,6 +703,11 @@ a{
     display: flex;
     flex-wrap: wrap;
     margin: 0 -15px;
+
+    @include for-768{
+      margin: 0;
+      display: block;
+    }
   }
 
   &__item{
@@ -620,6 +717,10 @@ a{
 
     @include for-992{
       width: 33.33333%
+    }
+
+    @include for-768{
+      width: 100%;
     }
   }
 
@@ -631,9 +732,17 @@ a{
     transition: .3s;
     height: 100%;
 
+    @include for-768{
+      align-items: center;
+    }
+
     &:hover{
-        box-shadow: 0px 15px 40px 0px rgba(4, 11, 49, 0.1);
+      box-shadow: 0px 15px 40px 0px rgba(4, 11, 49, 0.1);
       border-color: transparent;
+
+      @include for-768{
+        box-shadow: 0 0 20px 0 rgba(4,11,49,.1);
+      }
     }
   }
 
@@ -663,12 +772,48 @@ a{
 
   &__btn{
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 
   &__btn-i{
 
   }
 
+}
+
+#activities-slider{
+
+  .slick-dots{
+
+    li{
+      margin: 0;
+
+      button{
+
+        &:before{
+          content: '';
+          width: 11px;
+          height: 11px;
+          background: $grey;
+          border-radius: 50%;
+        }
+      }
+
+      &.slick-active{
+
+        button{
+
+          &:before{
+            background: $red;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
 }
 
 .half-block{
@@ -681,6 +826,19 @@ a{
     width: 45%;
     height: 1105px;
     z-index: -1;
+
+    @include for-992{
+      width: calc(100% - 15px);
+      max-width: 550px;
+      opacity: .2;
+      height: 1000px;
+      background-size: contain;
+    }
+
+    @include for-550{
+      top: -50px;
+      max-width: 100%;
+    }
 
     &--img{
       background-repeat: no-repeat;
@@ -718,6 +876,12 @@ a{
     font-size: 39px;
     font-weight: 500;
     margin-bottom: 30px;
+
+    @include for-768{
+      font-size: 28px;
+      line-height: 32px;
+      text-align: center;
+    }
   }
   
   p{
@@ -747,6 +911,11 @@ a{
     justify-content: space-between;
     margin: 0 -15px;
     padding-top: 15px;
+
+    @include for-768{
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
   }
 
   &__ico-item{
@@ -757,6 +926,10 @@ a{
     align-items: center;
     justify-content: center;
     margin-bottom: 15px;
+
+    @include for-768{
+      width: 50%;
+    }
   }
 
   &__ico-i{
@@ -791,6 +964,10 @@ a{
     flex-wrap: wrap;
     margin: 0 -15px;
     padding-top: 30px;
+
+    @include for-768{
+      padding-top: 0;
+    }
   }
 
   &__item{
@@ -890,7 +1067,232 @@ a{
 .about-center{
   padding-top: 50px;
   padding-bottom: 100px;
+
+  @include for-768{
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
 }
+
+.breadcrumbs{
+
+  &__inner{
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  &__list{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__link{
+    line-height: 27px;
+    color: $red;
+    text-decoration: underline;
+    position: relative;
+    margin-right: 14px;
+    transition: .2s;
+
+    &:hover{
+      text-decoration: none;
+    }
+
+    &:after{
+      content: '»';
+      text-decoration: none;
+      color: $grey;
+      position: absolute;
+      right: -10px;
+    }
+
+
+    &:last-child{
+      color: $grey;
+      text-decoration: none;
+      margin-right: 0;
+      cursor: auto;
+
+      &:after{
+        display: none;
+      }
+    }
+  }
+
+}
+
+.double-page{
+
+  &__inner{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__content{
+    width: 100%;
+  }
+
+  &__sidebar{
+    width: 256px;
+    margin-left: 30px;
+    padding-top: 700px;
+  }
+}
+
+.seo-block{
+
+  &--w70{
+    width: 70%;
+  }
+
+  &__title, h1{
+    font-weight: 500;
+    color: $blue;
+    font-size: 49px;
+    line-height: 69px;
+  }
+
+  p{
+    color: $grey;
+    margin-bottom: 25px;
+    line-height: 20px;
+  }
+
+  &__subtitle, h2{
+    font-weight: 500;
+    color: $blue;
+    font-size: 29px;
+    line-height: 45px;
+    margin-bottom: 25px;
+  }
+
+  &__table{
+    margin-bottom: 25px;
+
+    table{
+      padding: 30px;
+      box-shadow: 0px 2px 15px 0px rgba(255, 25, 47, 0.4);
+      border-radius: 21px;
+      width: 100%;
+      border-spacing: initial;
+
+      thead{
+
+        td{
+          padding-bottom: 30px;
+        }
+
+        //td[colspan] span{
+        //  color: $blue;
+        //  font-weight: 600;
+        //  font-size: 21px;
+        //  line-height: 27px;
+        //}
+      }
+
+      tbody{
+
+        tr{
+
+          &:nth-child(odd){
+            background-color: #fff5f5;
+          }
+        }
+
+        td{
+          padding: 10px 20px;
+        }
+      }
+
+      tr{
+
+        td{
+          color: $grey;
+          font-weight: 500;
+        }
+      }
+    }
+
+    &--mini{
+
+    }
+  }
+
+  &__table-head-wrap{
+
+  }
+
+  &__table-title{
+
+  }
+
+  &__table-red-txt{
+
+  }
+
+  &__table-subtitle{
+    color: $blue;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 27px;
+  }
+
+  ul{
+    padding-bottom: 25px;
+
+    li{
+      position: relative;
+      color: #333333;
+      line-height: 20px;
+      padding-left: 55px;
+      margin-bottom: 15px;
+
+      &:before{
+        content: '';
+        position: absolute;
+        left: 18px;
+        top: 6px;
+        width: 15px;
+        height: 6px;
+        background: $red;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  ol{
+    padding-bottom: 25px;
+
+    li{
+      position: relative;
+      color: #333333;
+      line-height: 20px;
+      padding-left: 55px;
+      margin-bottom: 15px;
+
+      counter-increment: step-counter;
+
+      &:before{
+        content: counter(step-counter);
+        position: absolute;
+        left: 12px;
+        top: -5px;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        color: $red;
+        border: 2px solid $red;
+      }
+    }
+  }
+
+
+}
+
 
 .footer{
   background: $blue;
@@ -1077,3 +1479,15 @@ a{
   }
 
 }
+
+
+//slick-fix
+
+.slick-slide{
+
+  &:focus{
+    outline: none;
+  }
+}
+//slick-fix end
+

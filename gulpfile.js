@@ -64,6 +64,8 @@ gulp.task('js', () => {
 gulp.task('css-libs', () => {
   return gulp.src([
       'node_modules/normalize.css/normalize.css',
+      'node_modules/slick-carousel/slick/slick.css',
+      'node_modules/slick-carousel/slick/slick-theme.css',
       // 'node_modules/lightbox2/dist/css/lightbox.min.css',
       // 'node_modules/aos/dist/aos.css'
   ])
@@ -78,6 +80,7 @@ gulp.task('css-libs', () => {
 gulp.task('js-libs', () => {
   return gulp.src([
       'node_modules/jquery/dist/jquery.min.js',
+      'node_modules/slick-carousel/slick/slick.min.js',
       // 'node_modules/aos/dist/aos.js',
       // 'node_modules/blazy/blazy.min.js',
     ])
