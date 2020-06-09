@@ -32,6 +32,75 @@ a{
 
 //custom styles
 
+.site-input{
+  max-width: 365px;
+  width: 100%;
+  display: flex;
+
+  &.correct{
+
+    input{
+      border-color: mediumspringgreen;
+    }
+  }
+
+  &.error-field{
+
+    input{
+      border-color: $red;
+    }
+  }
+
+  input{
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(230, 230, 230);
+    background-color: rgb(255, 255, 255);
+    padding: 0 20px;
+    line-height: 42px;
+    border-radius: 21px;
+    outline: none;
+    width: 100%;
+  }
+}
+
+.site-checkbox{
+
+  input{
+    display: none;
+
+    &:checked + label{
+
+      &:after{
+        opacity: 1;
+      }
+    }
+  }
+
+  label{
+    width: 15px;
+    height: 15px;
+    border: 1px solid #333;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+
+    &:after{
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: -10px;
+      width: 9px;
+      height: 19px;
+      border-bottom: 2px solid #333;
+      border-right: 2px solid #333;
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: .2s;
+    }
+  }
+}
+
 .boh{
   overflow: hidden;
 }
@@ -406,6 +475,14 @@ a{
         }
       }
     }
+
+    &--desctop-hide{
+      display: none;
+
+      @include for-992{
+        display: flex;
+      }
+    }
   }
 
   &__link{
@@ -576,7 +653,7 @@ a{
 
     @include for-1600{
       background-size: auto;
-      transform: translateX(15px);
+
     }
   }
 
@@ -589,6 +666,11 @@ a{
     height: 100%;
     background-position: right center;
     background-repeat: no-repeat;
+    //background-position: calc(100% + 20px) center;
+
+    @include for-1600{
+      background-position: center;
+    }
 
     @include for-992{
       background-size: cover;
@@ -618,6 +700,10 @@ a{
   &__inner{
     padding-top: 100px;
     min-height: 700px;
+
+    @include for-1600{
+      min-height: 450px;
+    }
 
     @include for-992{
       min-height: 475px;
@@ -654,6 +740,12 @@ a{
     color: $blue;
     margin: 30px 0;
     line-height: 65px;
+
+    @include for-1600{
+      font-size: 40px;
+      line-height: 44px;
+      margin: 15px 0;
+    }
 
     @include for-768{
       font-size: 30px;
@@ -846,6 +938,23 @@ a{
       background-position: center;
       width: 100%;
       height: 100%;
+
+      @include for-992{
+        display: none;
+      }
+    }
+
+    &--img-mobile{
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: center;
+      width: 100%;
+      height: 100%;
+      display: none;
+
+      @include for-992{
+        display: block;
+      }
     }
   }
 
@@ -1126,6 +1235,10 @@ a{
   &__inner{
     display: flex;
     justify-content: space-between;
+
+    @include for-1100{
+      flex-direction: column;
+    }
   }
 
   &__content{
@@ -1136,118 +1249,337 @@ a{
     width: 256px;
     margin-left: 30px;
     padding-top: 700px;
+
+    @include for-1600{
+      padding-top: 450px;
+    }
+
+    @include for-1100{
+      padding-top: 0;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
   }
 }
 
-.seo-block{
+.sidebar{
 
-  &--w70{
-    width: 70%;
+  &__inner{
+
   }
 
-  &__title, h1{
+  &__section{
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 21px;
+    box-shadow: 0px 2px 15px 0px rgba(255, 25, 47, 0.4);
+    overflow: hidden;
+    background: white;
+
+    @include for-1100 {
+      &--hide-mobile {
+        display: none;
+      }
+    }
+  }
+
+  &__section-head{
+    background: $red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 30px;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    height: 44px;
+  }
+
+  &__section-list{
+    padding: 20px 30px;
+  }
+
+  &__section-link{
+    display: flex;
+    margin-bottom: 15px;
+    color: #333;
+    line-height: 20px;
+    transition: .2s;
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+
+    &:hover{
+      color: $red;
+    }
+  }
+
+}
+
+#licenses-slider{
+
+  .licenses-block__item{
+
+    @include for-1100 {
+      padding: 15px;
+    }
+  }
+
+  .licenses-block__img{
+    width: 100%;
+  }
+
+  .slick-arrow{
+    top: -20px;
+    left: auto;
+    right: auto;
+
+    &:before{
+      content: '';
+      height: 15px;
+      width: 14px;
+      background-image: url("../img/ico/arrow-w.svg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: block;
+    }
+  }
+
+  .slick-prev{
+    left: 30px;
+  }
+
+  .slick-next{
+    right: 30px;
+
+    &:before{
+      transform: rotate(180deg);
+    }
+  }
+}
+
+
+.seo-block {
+
+  &--w70 {
+    width: 70%;
+
+    @include for-992 {
+      width: 100%;
+    }
+  }
+
+  &__title, h1 {
     font-weight: 500;
     color: $blue;
     font-size: 49px;
     line-height: 69px;
+
+    @include for-1600 {
+      font-size: 40px;
+      line-height: 44px;
+      margin: 15px 0;
+    }
+
+    @include for-768{
+      font-size: 30px;
+      line-height: 36px;
+    }
   }
 
-  p{
+  p {
     color: $grey;
     margin-bottom: 25px;
     line-height: 20px;
+
+    a {
+      color: $red;
+      text-decoration: underline;
+      transition: .1s;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 
-  &__subtitle, h2{
+  &__subtitle, h2 {
     font-weight: 500;
     color: $blue;
     font-size: 29px;
     line-height: 45px;
     margin-bottom: 25px;
+
+    @include for-768{
+      font-size: 28px;
+      line-height: 32px;
+    }
   }
 
-  &__table{
+  &__table {
     margin-bottom: 25px;
+    padding: 30px;
+    box-shadow: 0px 2px 15px 0px rgba(255, 25, 47, 0.4);
+    background: white;
+    border-radius: 21px;
 
-    table{
-      padding: 30px;
-      box-shadow: 0px 2px 15px 0px rgba(255, 25, 47, 0.4);
-      border-radius: 21px;
+    @include for-992{
+
+      overflow-x: scroll;
+
+      &::-webkit-scrollbar {
+        width: 1em;
+        height: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $blue;
+      }
+
+      .seo-block__table-big-wrap{
+        width: 992px;
+      }
+    }
+
+    @include for-768{
+      padding: 10px;
+
+      .seo-block__table-big-wrap{
+        width: 768px;
+      }
+    }
+
+    table {
       width: 100%;
       border-spacing: initial;
 
-      thead{
+      thead {
 
-        td{
-          padding-bottom: 30px;
-        }
+        td[colspan] {
 
-        //td[colspan] span{
-        //  color: $blue;
-        //  font-weight: 600;
-        //  font-size: 21px;
-        //  line-height: 27px;
-        //}
-      }
+          .seo-block__table-head-wrap {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 30px;
+          }
 
-      tbody{
+          .seo-block__table-title {
+            color: $blue;
+            font-weight: 600;
+            font-size: 29px;
+            line-height: 27px;
+            white-space: nowrap;
+            min-width: 280px;
+          }
 
-        tr{
-
-          &:nth-child(odd){
-            background-color: #fff5f5;
+          .seo-block__table-red-txt {
+            font-weight: 600;
+            color: $red;
+            font-size: 12px;
+            line-height: 14px;
+            padding-left: 25px;
           }
         }
 
-        td{
-          padding: 10px 20px;
+        .seo-block__table-head-tab {
+          background-color: #f2f2f2;
+
+          td {
+            padding: 15px 30px;
+            text-align: center;
+            color: $blue;
+            font-weight: bold;
+            font-size: 18px;
+          }
         }
       }
 
-      tr{
+      tbody {
 
-        td{
+        tr {
+          &:nth-child(even) {
+            background-color: #fff5f5;
+          }
+
+          &:first-child {
+
+            td {
+              //color: $blue;
+              //font-weight: 600;
+              //font-size: 21px;
+              //line-height: 27px;
+              //padding-top: 30px;
+              //padding-left: 0;
+            }
+          }
+        }
+
+        td {
+          padding: 10px 20px;
+          text-align: center;
+
+          &:first-child {
+            text-align: start;
+          }
+
+          @include for-768{
+            padding: 10px;
+          }
+
+        }
+      }
+
+      tr {
+
+        td {
           color: $grey;
           font-weight: 500;
         }
       }
     }
+  }
 
-    &--mini{
+  &__table-subtitle {
+    background-color: transparent !important;
 
+    td {
+      padding-left: 0 !important;
+
+      @include for-768{
+        padding-left: 10px !important;
+      }
+    }
+
+    span {
+      color: $blue;
+      font-weight: 600;
+      font-size: 21px;
+      line-height: 27px;
+      display: block;
+      padding-bottom: 15px;
     }
   }
 
-  &__table-head-wrap{
+  ul {
+    margin-bottom: 30px;
 
-  }
-
-  &__table-title{
-
-  }
-
-  &__table-red-txt{
-
-  }
-
-  &__table-subtitle{
-    color: $blue;
-    font-weight: 600;
-    font-size: 21px;
-    line-height: 27px;
-  }
-
-  ul{
-    padding-bottom: 25px;
-
-    li{
+    li {
       position: relative;
       color: #333333;
       line-height: 20px;
       padding-left: 55px;
       margin-bottom: 15px;
 
-      &:before{
+      @include for-768{
+        padding-left: 40px;
+      }
+
+      &:before {
         content: '';
         position: absolute;
         left: 18px;
@@ -1256,14 +1588,18 @@ a{
         height: 6px;
         background: $red;
         border-radius: 5px;
+
+        @include for-768{
+          left: 6px;
+        }
       }
     }
   }
 
-  ol{
-    padding-bottom: 25px;
+  ol {
+    margin-bottom: 30px;
 
-    li{
+    li {
       position: relative;
       color: #333333;
       line-height: 20px;
@@ -1272,7 +1608,11 @@ a{
 
       counter-increment: step-counter;
 
-      &:before{
+      @include for-768{
+        padding-left: 40px;
+      }
+
+      &:before {
         content: counter(step-counter);
         position: absolute;
         left: 12px;
@@ -1286,12 +1626,312 @@ a{
         font-weight: 600;
         color: $red;
         border: 2px solid $red;
+
+        @include for-768{
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+.questions{
+
+  &__inner{
+
+  }
+
+  &__item{
+    position: relative;
+    border-radius: 21px;
+    box-shadow: 0px 2px 15px 0px rgba(255, 25, 47, 0.4);
+    padding: 25px 60px 15px;
+    margin-bottom: 30px;
+
+    @include for-768{
+      padding: 15px 10px;
+    }
+
+    &.open{
+
+      .questions__item-btn{
+        transform: rotate(0);
+      }
+
+      .questions__txt{
+        max-height: inherit;
       }
     }
   }
 
+  &__item-btn{
+    position: absolute;
+    cursor: pointer;
+    transition: .2s;
+    height: 20px;
+    width: 20px;
+    transform: rotate(45deg);
+    right: 30px;
+    top: 25px;
+    display: flex;
+    background: url("../img/ico/cross.svg") center no-repeat;
+    background-size: contain;
+
+    @include for-768{
+      right: 10px;
+    }
+  }
+
+  &__name{
+    font-size: 18px;
+    font-weight: 600;
+    color: $blue;
+    padding-bottom: 15px;
+
+    @include for-768{
+      padding-right: 42px;
+      line-height: 20px;
+    }
+  }
+
+  &__txt{
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    transition: .2s all;
+    color: $blue;
+    line-height: 20px;
+  }
 
 }
+
+
+.quote-block{
+
+  &__inner{
+
+  }
+
+  &__content{
+    position: relative;
+    display: flex;
+    padding: 30px 90px;
+    background-color: #fff5f5;
+    background-image: url("../img/ico/quotation.svg");
+    background-position: 40px 45px;
+    background-size: 35px;
+    background-repeat: no-repeat;
+    margin-bottom: 30px;
+
+    @include for-768{
+      padding: 5px 15px 5px 60px;
+      background-position: 15px 20px;
+      background-size: 30px;
+    }
+  }
+
+  &__txt, p{
+    color: #000000;
+  }
+}
+
+
+.admonition{
+
+  &__inner{
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  &__content{
+    position: relative;
+    padding: 0 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid $red;
+
+    @include for-768{
+      padding: 5px;
+    }
+  }
+
+  &__ico{
+    position: absolute;
+    top: -17px;
+    left: 20px;
+    border-radius: 5px;
+    width: 47px;
+    height: 34px;
+    background: $red url('../img/ico/exclam.png') center no-repeat;
+    background-size: 6px;
+  }
+
+  &__txt{
+    max-width: 550px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    color: $blue;
+    line-height: 20px;
+  }
+
+}
+
+.btn-block{
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+  padding-bottom: 50px;
+
+  @include for-768{
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-top: 0;
+  }
+
+  &__btn{
+    margin: 15px;
+  }
+}
+
+
+.consultation{
+  margin-bottom: 30px;
+
+  &__form{
+    background-color: #f3f4f6;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: cover;
+    padding: 30px;
+    position: relative;
+
+    @include for-992{
+      background-image: url("")!important;
+    }
+
+    @include for-768{
+      padding: 15px;
+      margin: 0 -15px;
+      width: calc(100% + 30px);
+    }
+
+    &.submitted {
+      .consultation__message{
+        z-index: 1;
+        visibility: visible;
+        opacity: 1;
+      }
+
+      @include for-992{
+        width: 100%;
+        margin: 0;
+      }
+    }
+  }
+
+  &__content{
+    max-width: 540px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 414px;
+
+    @include for-768{
+      width: 100%;
+      max-width: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__message{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    transition: .3s;
+    background-color: #f0f1f3;
+
+    span{
+      text-align: center;
+      font-size: 24px;
+      color: $blue;
+      font-weight: 600;
+    }
+  }
+
+  &__title{
+    color: $blue;
+    font-size: 39px;
+    font-weight: 500;
+    line-height: 45px;
+
+    @include for-768{
+      font-size: 22px;
+      line-height: 24px;
+    }
+  }
+
+  &__desc{
+    color: #333;
+    line-height: 28px;
+  }
+
+  &__row{
+    display: flex;
+    margin: 12px 0;
+
+    @include for-768{
+      width: 100%;
+    }
+  }
+
+  &__checkbox{
+    display: flex;
+    font-size: 12px;
+    color: #333;
+
+    span{
+      padding-left: 20px;
+
+      a{
+        text-decoration: underline;
+        color: #333;
+
+        &:hover{
+          color: $red;
+        }
+      }
+    }
+  }
+
+  &__btn{
+    padding-top: 15px;
+
+    @include for-768{
+      width: 100%;
+    }
+  }
+
+  &__btn-i{
+
+  }
+
+}
+
+
 
 
 .footer{
@@ -1433,7 +2073,7 @@ a{
     }
 
     @include for-768{
-      transform: translateX(15px);
+      transform: translateX(10px);
     }
   }
 

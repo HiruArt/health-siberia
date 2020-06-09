@@ -42,7 +42,9 @@
     "gulp-webp": "^4.0.1",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
+    "inputmask": "^5.0.3",
     "jquery": "^3.4.1",
+    "magnific-popup": "^1.1.0",
     "normalize.css": "^8.0.1",
     "slick-carousel": "^1.8.1"
   }

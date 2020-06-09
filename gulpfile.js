@@ -66,8 +66,8 @@ gulp.task('css-libs', () => {
       'node_modules/normalize.css/normalize.css',
       'node_modules/slick-carousel/slick/slick.css',
       'node_modules/slick-carousel/slick/slick-theme.css',
-      // 'node_modules/lightbox2/dist/css/lightbox.min.css',
-      // 'node_modules/aos/dist/aos.css'
+      'node_modules/aos/dist/aos.css',
+      'node_modules/magnific-popup/dist/magnific-popup.css'
   ])
     .pipe(gulp.dest('dist/css/libs/'))
     .pipe(concat('libs.css'))
@@ -81,8 +81,10 @@ gulp.task('js-libs', () => {
   return gulp.src([
       'node_modules/jquery/dist/jquery.min.js',
       'node_modules/slick-carousel/slick/slick.min.js',
-      // 'node_modules/aos/dist/aos.js',
-      // 'node_modules/blazy/blazy.min.js',
+      'node_modules/aos/dist/aos.js',
+      'node_modules/blazy/blazy.min.js',
+      'node_modules/inputmask/dist/jquery.inputmask.min.js',
+      'node_modules/magnific-popup/dist/jquery.magnific-popup.min.js'
     ])
     .pipe(gulp.dest('dist/js/libs/'))
     .pipe(concat('libs.js'))
@@ -101,7 +103,7 @@ gulp.task('img', () => {
       }),
     ],{verbose: true})))
     .pipe(gulp.dest('dist/img/'))
-		// .pipe(webp())
+		.pipe(webp())
 		.pipe(gulp.dest('dist/img/'))
     .pipe(browserSync.reload({stream: true}));
 });

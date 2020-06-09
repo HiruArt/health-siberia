@@ -17,10 +17,10 @@ block content
 
     .page-bg
       .page-bg__inner
-        .page-bg__img(style="background-image: url('./img/top-bg-1.jpg');")
-        .page-bg__border(style="background-image: url('./img/top-bg-border.png');")
+        .page-bg__img.webp-img(data-webp="./img/top-bg-1.webp" data-img="./img/top-bg-1.jpg")
+        .page-bg__border.webp-img(data-webp="./img/top-bg-border.webp" data-img="./img/./img/top-bg-border.png")
 
-    .site-container-wrap.breadcrumbs
+    .site-container-wrap.breadcrumbs(data-aos="fade-right")
       .site-container.breadcrumbs__inner
         .breadcrumbs__list
           a(href="#").breadcrumbs__link healthsib.ru
@@ -30,17 +30,16 @@ block content
     .site-container-wrap.double-page
       .site-container.double-page__inner
         .double-page__content
-          .seo-block.seo-block--w70
+          .seo-block.seo-block--w70(data-aos="fade-right")
             h1.seo-block__title Вывод из запоя на дому в Новосибирске: круглосуточно
             p Помощь опытных наркологов и психологов необходима, когда вы или ваши близкие в течении длительного времени злоупотребляют алкоголем. Медицинский центр «Здоровье Сибири» оказывает услуги вывод из запоя на дому в Новосибирске с выездом врача нарколога на дом. Опытные специалисты прибудут к пациенту за 50 минут. Работаем 100% анонимно, конфидециально.
             h2.seo-block__subtitle Цены на вывод из запоя на дому
             .seo-block__table.seo-block__table--mini
               table
-                thead
-                  tr
-                    td(colspan="2").seo-block__table-subtitle
-                      span По городу Новосибирск:
                 tbody
+                  tr.seo-block__table-subtitle
+                    td(colspan="2")
+                      span По городу Новосибирск:
                   tr
                     td Обычное похмелье
                     td от 3000 руб
@@ -50,7 +49,7 @@ block content
 
             p Стоимость услуг в ночное время, а так же отдаленные районы: Обьгэс, Пашино, Толмачево и другие увеличивается на — 500 руб. Выезд по области расчитывается индивидуально. Спасибо за понимание.
 
-          .seo-block
+          .seo-block(data-aos="fade-right")
             h2.seo-block__subtitle Преимущества выведения из запоя на дому
             ul
               li Квалифицированный персонал с многолетним опытом работы;
@@ -60,29 +59,36 @@ block content
               li Приемлемые цены на услуги;
               li Гарантируем результат.
 
-          .consultation
-            form.consultation__form(style="background-image: url('');")
-              .consultation__title Запишитесь на бесплатную консультацию по телефону
-              p.consultation__desc По телефону врач соберет первичный анамнез, сформирует бригаду, сообщит о точной стоимости процедуры и времени прибытия нарколога
-              .consultation__row
-                input(type="text" placeholder="ФИО")
-              .consultation__row
-                input(type="tel" placeholder="Телефон")
-              .consultation__row
-                input(type="checkbox" id="personal-policy" checked)
-                label(for="personal-policy")
-                span Я согласен с
-                  |
-                  a(href="#") политикой обработки  персональных данных
-              .consultation__btn
-                a(href="#").site-btn.consultation__btn-i
-                  span Отправить заявку
+          .consultation(data-aos="fade-right")
+            form.consultation__form.webp-img(data-webp="./img/form-bg.webp" data-img="./img/form-bg.jpg")
+              .consultation__content
+                .consultation__title Запишитесь на бесплатную консультацию по телефону
+                p.consultation__desc По телефону врач соберет первичный анамнез, сформирует бригаду, сообщит о точной стоимости процедуры и времени прибытия нарколога
+                .consultation__row
+                  .site-input
+                    input(type="text" placeholder="ФИО" data-valid="name")
+                .consultation__row
+                  .site-input
+                    input(type="tel" placeholder="Телефон")
+                .consultation__row
+                  .consultation__checkbox
+                    .site-checkbox
+                      input(type="checkbox" id="personal-policy" checked)
+                      label(for="personal-policy")
+                    span Я согласен с &nbsp;
+                      a(href="#") политикой обработки персональных данных
+                .consultation__btn
+                  a(href="#").site-btn.submit-btn.consultation__btn-i
+                    span Отправить заявку
 
-          .seo-block
+                .consultation__message
+                  span Спасибо, ваша заявка отправлена
+
+          .seo-block(data-aos="fade-right")
             h2.seo-block__subtitle Как проводятся процедуры
             p
               a(href="#") Нарколог выезжает
-              | Нарколог выезжает по указанному адресу и оценивает состояние человека. После проведения диагностики решается вопрос о дальнейших действиях: либо больному возможно оказать помощь на месте, либо есть острая необходимость лечения в стационаре. <br>
+              |  по указанному адресу и оценивает состояние человека. После проведения диагностики решается вопрос о дальнейших действиях: либо больному возможно оказать помощь на месте, либо есть острая необходимость лечения в стационаре. <br>
               | Вывести из запоя на дому у пациента можно, только если здоровье пациента соответствует следующим критериям:
             ul
               li Нет черепно-мозговых травм
@@ -90,71 +96,78 @@ block content
               li Нет высокой температуры
               li Нет острого течения заболеваний внутренних органов, сосудов и нервной системы
             p Для выведения из запоя и алкогольного отравления на дому применяется инфузионная терапия (капельница). Метод лечения основан на введении препаратов для очищения организма от токсинов и восполнения паталогических потерь организма.
-            .seo-block__table.seo-block__table-big
-              table
-                thead
-                  tr
-                    td(colspan="3")
-                      span.seo-block__table-head-wrap
-                        span.seo-block__table-title Состав капельницы
-                        span.seo-block__table-red-txt Точный состав и обьем капельницы определяет нарколог на основании показаний и противопоказаний для каждого пациента индивидуально.
-                  tr
-                    td Программа терапии
-                    td Обычное похмелье
-                    td Тяжелое похмелье
-                tbody
-                  tr
-                    td(colspan="3").seo-block__table-subtitle Растворы для инфузионной терапии
-                  tr
-                    td Физ раствор
-                    td +
-                    td -
-                  tr
-                    td Раствор Рингера
-                    td +
-                    td -
-                  tr
-                    td Реамберин
-                    td -
-                    td +
-                  tr
-                    td Стерофундин
-                    td -
-                    td +
+            .seo-block__table
+              .seo-block__table-big-wrap
+                table
+                  thead
+                    tr
+                      td(colspan="3")
+                        span.seo-block__table-head-wrap
+                          span.seo-block__table-title Состав капельницы
+                          span.seo-block__table-red-txt Точный состав и обьем капельницы определяет нарколог на основании показаний и противопоказаний для каждого пациента индивидуально.
+                    tr.seo-block__table-head-tab
+                      td Программа терапии
+                      td Обычное похмелье
+                      td Тяжелое похмелье
+                  tbody
+                    tr.seo-block__table-subtitle
+                      td(colspan="3")
+                        span Растворы для инфузионной терапии
+                    tr
+                      td Физ раствор
+                      td +
+                      td -
+                    tr
+                      td Раствор Рингера
+                      td +
+                      td -
+                    tr
+                      td Реамберин
+                      td -
+                      td +
+                    tr
+                      td Стерофундин
+                      td -
+                      td +
 
-                tbody
-                  tr
-                    td(colspan="3").seo-block__table-subtitle Общеукрепляющие:
-                  tr
-                    td Физ раствор
-                    td +
-                    td -
-                  tr
-                    td Раствор Рингера
-                    td +
-                    td -
-                  tr
-                    td Реамберин
-                    td -
-                    td +
-                  tr
-                    td Стерофундин
-                    td -
-                    td +
+                  tbody
+                    tr.seo-block__table-subtitle
+                      td(colspan="3")
+                        span Общеукрепляющие:
+                    tr
+                      td Физ раствор
+                      td +
+                      td -
+                    tr
+                      td Раствор Рингера
+                      td +
+                      td -
+                    tr
+                      td Реамберин
+                      td -
+                      td +
+                    tr
+                      td Стерофундин
+                      td -
+                      td +
 
             h2.seo-block__subtitle Как проводятся процедуры
             .questions
               .questions__inner
-                .questions__item
+                .questions__item(data-aos="fade-right")
+                  .questions__item-btn
                   .questions__name Нужно ли согласие пациента на выведение из запоя?
                   .questions__txt Проводить лечение против воли, незаконно и физически просто невозможно! Если пациент отказывается от профессионального лечения наш психотерапевт может помочь в мотивации.
-                .questions__item
+                .questions__item(data-aos="fade-right")
+                  .questions__item-btn
                   .questions__name Поможет ли прерывание запоя, если началась белая горячка?
                   .questions__txt Если симптомы на лицо, надо вызывать психиатрическую бригаду скорой помощи. К сожалению данный тип осложнения лечится только в стацонарных услвоиях в психиатрической больнице.
-                .questions__item
+                .questions__item(data-aos="fade-right")
+                  .questions__item-btn
                   .questions__name Сколько врач находится с больным?
                   .questions__txt Для каждого больного может потребоваться разное количество времени, в среднем процедура проводится за 1 час.
 
+          .seo-block(data-aos="fade-right")
             h2.seo-block__subtitle Нумерованные и ненумерованные списки
             ul
               li Нет черепно-мозговых травм
@@ -168,24 +181,11 @@ block content
               li Нет высокой температуры
               li Нет острого течения заболеваний внутренних органов, сосудов и нервной системы
 
-            .quote-block
-              .quote-block__inner
-                p.quote-block__txt Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю,  словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных былинок и чувствую, как близок моему сердцу крошечный мирок
-
-            .admonition
-              .admonition__inner
-                p.admonition__txt Ценовая политика клиники достаточно строгая, цены отдельно формируются для каждого региона (страны).
-
-            .seo-block__btn
-              a(href="#").site-btn.seo-block__btn-i
-                span Заказать звонок
-              a(href="#").site-btn.seo-block__btn-i
-                span Заказать звонок
 
         .double-page__sidebar
           .sidebar
             .sidebar__inner
-              .sidebar__section
+              .sidebar__section.sidebar__section--hide-mobile(data-aos="fade-left")
                 .sidebar__section-head Лечение алкоголизма
                 .sidebar__section-list
                   a(href="#").sidebar__section-link Вывод из запоя на дому
@@ -196,7 +196,7 @@ block content
                   a(href="#").sidebar__section-link Лечение от алкоголизма
                   a(href="#").sidebar__section-link Реабилитация алкоголиков
 
-              .sidebar__section
+              .sidebar__section.sidebar__section--hide-mobile(data-aos="fade-left")
                 .sidebar__section-head Лечение наркомании
                 .sidebar__section-list
                   a(href="#").sidebar__section-link Реабилитация наркозависимых
@@ -204,12 +204,39 @@ block content
                   a(href="#").sidebar__section-link Лечение солевой зависимости
                   a(href="#").sidebar__section-link Снятие ломки
 
-              .sidebar__section
+              .sidebar__section(data-aos="fade-left")
                 .sidebar__section-head Лицензии
                 .licenses-block#licenses-slider
-                  .licenses-block__item
-                    a(href="javascript:void(0);").licenses-block__link
-                      img(src="./img/sertificpng.png" alt="alt").licenses-block__img
-                  .licenses-block__item
-                    a(href="javascript:void(0);").licenses-block__link
-                      img(src="./img/sertificpng.png" alt="alt").licenses-block__img
+                  a(href="./img/sertificpng-big.jpg").licenses-block__item
+                    img(src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-blazy="./img/sertificpng.png" alt="alt").licenses-block__img.b-lazy
+                  a(href="./img/sertificpng-big.jpg").licenses-block__item
+                    img(src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-blazy="./img/sertificpng.png" alt="alt").licenses-block__img.b-lazy
+                  a(href="./img/sertificpng-big.jpg").licenses-block__item
+                    img(src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-blazy="./img/sertificpng.png" alt="alt").licenses-block__img.b-lazy
+                  a(href="./img/sertificpng-big.jpg").licenses-block__item
+                    img(src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-blazy="./img/sertificpng.png" alt="alt").licenses-block__img.b-lazy
+                  a(href="./img/sertificpng-big.jpg").licenses-block__item
+                    img(src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-blazy="./img/sertificpng.png" alt="alt").licenses-block__img.b-lazy
+                  a(href="./img/sertificpng-big.jpg").licenses-block__item
+                    img(src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-blazy="./img/sertificpng.png" alt="alt").licenses-block__img.b-lazy
+
+
+
+    .site-container-wrap.quote-block(data-aos="fade-up")
+      .site-container.quote-block__inner
+        .quote-block__content
+          p.quote-block__txt Душа моя озарена неземной радостью, как эти чудесные весенние утра, которыми я наслаждаюсь от всего сердца. Я совсем один и блаженствую в здешнем краю,  словно созданном для таких, как я. Я так счастлив, мой друг, так упоен ощущением покоя, что искусство мое страдает от этого. Ни одного штриха не мог бы я сделать, а никогда не был таким большим художником, как в эти минуты. Когда от милой моей долины поднимается пар и полдневное солнце стоит над непроницаемой чащей темного леса и лишь редкий луч проскальзывает в его святая святых, а я лежу в высокой траве у быстрого ручья и, прильнув к земле, вижу тысячи всевозможных былинок и чувствую, как близок моему сердцу крошечный мирок
+
+    .site-container-wrap.admonition(data-aos="fade-up")
+      .site-container.admonition__inner
+        .admonition__content
+          .admonition__ico
+          p.admonition__txt Ценовая политика клиники достаточно строгая,<br> цены отдельно формируются для каждого региона (страны).
+
+    .site-container-wrap
+      .site-container
+        .btn-block(data-aos="fade-up")
+          a(href="#").site-btn.btn-block__btn
+            span Заказать звонок
+          a(href="#").site-btn.btn-block__btn
+            span Заказать звонок

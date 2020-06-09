@@ -1,22 +1,21 @@
 $(document).ready(function(){
 
-  // checking browser for WEBP
-  // hasWebP().then(function () {
-  //   $('.webp-img').each(function () {
-  //     var webp = $(this).data('webp');
-  //     $(this).attr('data-blazy', webp);
-  //   });
-  // }, function () {
-  //   $('.webp-img').each(function () {
-  //     var img = $(this).data('img');
-  //     $(this).attr('data-blazy',  img );
-  //   });
-  // });
+  /*checking browser for WEBP*/
+  hasWebP().then(function () {
+    $('.webp-img').each(function () {
+      var webp = $(this).data('webp');
+      $(this).css('background-image', 'url('+ webp +')');
+    });
+  }, function () {
+    $('.webp-img').each(function () {
+      var img = $(this).data('img');
+      $(this).css('background-image', 'url('+ img +')');
+    });
+  });
 
-	// var bLazy = new Blazy({
-	// 	src: 'data-blazy'
-	// });
-
+  var bLazy = new Blazy({
+    src: 'data-blazy'
+  });
 
   $('#menu-btn').click(function (e) {
     $(this).parent().toggleClass('show');
@@ -82,34 +81,163 @@ $(document).ready(function(){
     });
   }
 
+  var $licenSlider = $('#licenses-slider');
+
+
+  $licenSlider.slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: false,
+    arrows: true,
+    infinite: true,
+    autoplay: true,
+    responsive: [
+      {
+        breakpoint: 1120,
+        settings: {
+          slidesToShow: 3
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+  });
+
+  $licenSlider.magnificPopup({
+    delegate: 'a:not(.slick-cloned)',
+    type: 'image',
+    closeOnContentClick: false,
+    closeBtnInside: false,
+    gallery: {
+      enabled: true,
+    },
+    zoom: {
+      enabled: true,
+      duration: 300
+    },
+    removalDelay: 300,
+    disableOn: 0,
+    midClick: true,
+
+  });
+
+  $('.slick-slider').on('afterChange', function(event, slick, direction){
+    bLazy.revalidate();
+  });
+
   /*sliders end*/
+
+
+
+  $('.questions__item-btn').click(function (e) {
+    $(this).closest('.questions__item').toggleClass('open');
+  });
+
+
+
+  /*validation start*/
+
+  $('form .submit-btn').click(function (e) {
+    e.preventDefault();
+    if ($(this).closest('form').find('input[type="tel"]').length != 0) {
+      var inputTel = $(this).closest('form').find('input[type="tel"]');
+      if (inputTel.val().indexOf('_') === -1 && inputTel.val() != 0) {
+        $(inputTel).closest('.site-input').addClass('correct');
+        $(inputTel).closest('.site-input').removeClass('error-field');
+      } else {
+        $(inputTel).closest('.site-input').removeClass('correct');
+        $(inputTel).closest('.site-input').addClass('error-field');
+      }
+    }
+
+    // if($(this).closest('form').find('input[type="email"]')) {
+    //   var reg = /^[\w\.\d-_]+@[\w\.\d-_]+\.\w{2,4}$/i;
+    //
+    //   var input = $(this).closest('form').find('input[type="email"]');
+    //   var email = $(this).closest('form').find('input[type="email"]').length > 0
+    //     ? $(this).closest('form').find('input[type="email"]')
+    //     : false;
+    //
+    //
+    //   if (email.val() == "" && email !== false) {
+    //     email.closest('.site-input').addClass('error-field');
+    //
+    //   } else {
+    //     if (reg.test(email.val()) == false) {
+    //       email.closest('.site-input').addClass('error-field');
+    //
+    //     } else {
+    //       email.closest('.site-input').removeClass('error-field');
+    //       $(this.closest('form')).addClass('active');
+    //     }
+    //   }
+    // }
+
+    $(this).closest('form').find('input[data-valid="name"]').each(function () {
+      if ($(this).val() === '') {
+        $(this).closest('.site-input').addClass('error-field');
+        $(this).closest('.site-input').removeClass('correct');
+      } else {
+        $(this).closest('.site-input').addClass('correct');
+        $(this).closest('.site-input').removeClass('error-field');
+      }
+    });
+
+    if($(this).closest('form').find('.error-field').length == 0 && $(this).closest('form').find('.correct').length != 0){
+      $(this).closest('form').addClass('submitted');
+      /*ajax to submit the form*/
+    }
+
+  });
+
+  var phoneMask = $('input[type="tel"]');
+  $(phoneMask).inputmask('+7 (999) 999 99 99');
+
+  /*validation end*/
+
+
+  AOS.init({
+    duration: 600,
+    delay: 200,
+    disable: "mobile",
+  });
 
 });
 
 
-//script fro webp img and background
-// var hasWebP = (function () {
-//   // some small (2x1 px) test images for each feature
-//   var images = {
-//     basic: "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACyAgCdASoCAAEALmk0mk0iIiIiIgBoSygABc6zbAAA/v56QAAAAA==",
-//     lossless: "data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAQAAAAfQ//73v/+BiOh/AAA="
-//   };
-//
-//   return function (feature) {
-//     var deferred = $.Deferred();
-//
-//     $("<img>").on("load", function () {
-//       // the images should have these dimensions
-//       if (this.width === 2 && this.height === 1) {
-//         deferred.resolve();
-//       } else {
-//         deferred.reject();
-//       }
-//     }).on("error", function () {
-//       deferred.reject();
-//     }).attr("src", images[feature || "basic"]);
-//
-//     return deferred.promise();
-//   }
-// })();
+/*script fro webp img and background*/
+var hasWebP = (function () {
+  // some small (2x1 px) test images for each feature
+  var images = {
+    basic: "data:image/webp;base64,UklGRjIAAABXRUJQVlA4ICYAAACyAgCdASoCAAEALmk0mk0iIiIiIgBoSygABc6zbAAA/v56QAAAAA==",
+    lossless: "data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAQAAAAfQ//73v/+BiOh/AAA="
+  };
+
+  return function (feature) {
+    var deferred = $.Deferred();
+
+    $("<img>").on("load", function () {
+      // the images should have these dimensions
+      if (this.width === 2 && this.height === 1) {
+        deferred.resolve();
+      } else {
+        deferred.reject();
+      }
+    }).on("error", function () {
+      deferred.reject();
+    }).attr("src", images[feature || "basic"]);
+
+    return deferred.promise();
+  }
+})();
 
