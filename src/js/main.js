@@ -24,20 +24,20 @@ $(document).ready(function(){
     $('.nav__item').removeClass('open');
   });
 
-  $('.nav__subnav-btn').click(function(e){
-    $(this).closest('.nav__item').toggleClass('open');
-  });
-
-
-  // mobile submenu close when click another sub item
-  // $('.nav__subnav-btn').click(function(e) {
-  //   if ($(this).closest('.nav__item').hasClass('open')){
-  //     $('.nav__item').removeClass('open');
-  //   } else {
-  //     $('.nav__item').removeClass('open');
-  //     $(this).closest('.nav__item').addClass('open');
-  //   }
+  // $('.nav__subnav-btn').click(function(e){
+  //   $(this).closest('.nav__item').toggleClass('open');
   // });
+
+
+  /*mobile submenu close when click another sub item*/
+  $('.nav__subnav-btn').click(function(e) {
+    if ($(this).closest('.nav__item').hasClass('open')){
+      $('.nav__item').removeClass('open');
+    } else {
+      $('.nav__item').removeClass('open');
+      $(this).closest('.nav__item').addClass('open');
+    }
+  });
 
 
 
@@ -139,8 +139,8 @@ $(document).ready(function(){
 
 
 
-  $('.questions__item-btn').click(function (e) {
-    $(this).closest('.questions__item').toggleClass('open');
+  $('.questions__item').click(function (e) {
+    $(this).toggleClass('open');
   });
 
 
@@ -149,8 +149,8 @@ $(document).ready(function(){
 
   $('form .submit-btn').click(function (e) {
     e.preventDefault();
-    if ($(this).closest('form').find('input[type="tel"]').length != 0) {
-      var inputTel = $(this).closest('form').find('input[type="tel"]');
+    if ($(this).closest('form').find('input[data-valid="phone"]').length != 0) {
+      var inputTel = $(this).closest('form').find('input[data-valid="phone"]');
       if (inputTel.val().indexOf('_') === -1 && inputTel.val() != 0) {
         $(inputTel).closest('.site-input').addClass('correct');
         $(inputTel).closest('.site-input').removeClass('error-field');
@@ -200,7 +200,7 @@ $(document).ready(function(){
 
   });
 
-  var phoneMask = $('input[type="tel"]');
+  var phoneMask = $('input[data-valid="phone"]');
   $(phoneMask).inputmask('+7 (999) 999 99 99');
 
   /*validation end*/

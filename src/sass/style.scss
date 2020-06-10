@@ -27,10 +27,25 @@ ul, ol{
 
 a{
   text-decoration: none;
+  font-size: 15px;
 }
 
 
 //custom styles
+
+.hide-mobile{
+
+  @include for-992{
+    display: none;
+  }
+}
+
+.hide-desktop{
+
+  @media (min-width: 992px) {
+    display: none;
+  }
+}
 
 .site-input{
   max-width: 365px;
@@ -61,6 +76,10 @@ a{
     border-radius: 21px;
     outline: none;
     width: 100%;
+
+    @include for-992{
+      font-size: 16px;
+    }
   }
 }
 
@@ -68,6 +87,7 @@ a{
 
   input{
     display: none;
+    font-size: 16px;
 
     &:checked + label{
 
@@ -232,7 +252,8 @@ a{
     width: 100%;
 
     @include for-992{
-      max-width: 200px;
+      max-width: 100%;
+      width: 50px;
     }
   }
 
@@ -289,12 +310,22 @@ a{
     width: 100%;
 
     @include for-992{
-      display: none;
+      //display: none;
     }
   }
 
   &__top-btn-i{
+    @include for-992{
+      box-shadow: none;
+    }
 
+    @include for-768{
+
+      span{
+        font-size: 12px;
+        line-height: 34px;
+      }
+    }
   }
 
   &__nav{
@@ -419,6 +450,10 @@ a{
     display: flex;
     position: relative;
     z-index: 2;
+
+    @include for-1600{
+      margin-right: 40px;
+    }
 
     @include for-992 {
       margin-right: 0;
@@ -624,7 +659,7 @@ a{
   position: absolute;
   top: 0;
   right: 0;
-  max-width: 830px;
+  max-width: 790px;
   width: 100%;
   height: 840px;
   z-index: -1;
@@ -636,6 +671,16 @@ a{
   @include for-1600{
     max-width: 475px;
     height: 725px;
+  }
+
+  @include for-1200{
+    max-width: 430px;
+    height: 785px;
+  }
+
+  @include for-1100{
+    max-width: 360px;
+    height: 835px;
   }
 
   @include for-992{
@@ -759,6 +804,7 @@ a{
     line-height: 27px;
     color: $grey;
     margin-bottom: 30px;
+    text-align: justify;
   }
 
   &__btn{
@@ -996,6 +1042,7 @@ a{
   p{
     color: $grey;
     margin-bottom: 15px;
+    text-align: justify;
 
     strong{
       color: #333333;
@@ -1004,7 +1051,6 @@ a{
     a{
       color: $red;
       font-weight: 600;
-      font-size: 18px;
       transition: .3s;
       position: relative;
       display: inline-block;
@@ -1369,6 +1415,10 @@ a{
   &--w70 {
     width: 70%;
 
+    @include for-1200{
+      width: 50%;
+    }
+
     @include for-992 {
       width: 100%;
     }
@@ -1396,6 +1446,7 @@ a{
     color: $grey;
     margin-bottom: 25px;
     line-height: 20px;
+    text-align: justify;
 
     a {
       color: $red;
@@ -1454,6 +1505,12 @@ a{
       }
     }
 
+    @include for-550{
+      .seo-block__table-big-wrap{
+        width: 530px;
+      }
+    }
+
     table {
       width: 100%;
       border-spacing: initial;
@@ -1466,6 +1523,11 @@ a{
             display: flex;
             justify-content: space-between;
             padding-bottom: 30px;
+
+            @include for-768{
+              flex-direction: column;
+              padding-bottom: 15px;
+            }
           }
 
           .seo-block__table-title {
@@ -1475,6 +1537,11 @@ a{
             line-height: 27px;
             white-space: nowrap;
             min-width: 280px;
+
+            @include for-768{
+              font-size: 24px;
+              min-width: 200px;
+            }
           }
 
           .seo-block__table-red-txt {
@@ -1483,6 +1550,13 @@ a{
             font-size: 12px;
             line-height: 14px;
             padding-left: 25px;
+
+
+            @include for-768{
+              padding-left: 0;
+              max-width: 300px;
+              padding-top: 10px;
+            }
           }
         }
 
@@ -1495,6 +1569,11 @@ a{
             color: $blue;
             font-weight: bold;
             font-size: 18px;
+
+            @include for-768{
+              padding: 10px 15px;
+              font-size: 14px;
+            }
           }
         }
       }
@@ -1645,8 +1724,9 @@ a{
     position: relative;
     border-radius: 21px;
     box-shadow: 0px 2px 15px 0px rgba(255, 25, 47, 0.4);
-    padding: 25px 60px 15px;
+    padding: 25px 60px 10px;
     margin-bottom: 30px;
+    cursor: pointer;
 
     @include for-768{
       padding: 15px 10px;
@@ -1660,6 +1740,7 @@ a{
 
       .questions__txt{
         max-height: inherit;
+        padding-bottom: 10px;
       }
     }
   }
@@ -1678,7 +1759,10 @@ a{
     background-size: contain;
 
     @include for-768{
-      right: 10px;
+      right: 15px;
+      top: 30px;
+      height: 15px;
+      width: 15px;
     }
   }
 
@@ -1691,6 +1775,8 @@ a{
     @include for-768{
       padding-right: 42px;
       line-height: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
   }
 
@@ -1701,6 +1787,7 @@ a{
     transition: .2s all;
     color: $blue;
     line-height: 20px;
+    text-align: justify;
   }
 
 }
@@ -1732,6 +1819,7 @@ a{
 
   &__txt, p{
     color: #000000;
+    text-align: justify;
   }
 }
 
@@ -1790,6 +1878,7 @@ a{
     justify-content: center;
     padding-bottom: 20px;
     padding-top: 0;
+    align-items: center;
   }
 
   &__btn{
@@ -1808,6 +1897,7 @@ a{
     background-size: cover;
     padding: 30px;
     position: relative;
+    overflow: hidden;
 
     @include for-992{
       background-image: url("")!important;
@@ -1815,11 +1905,10 @@ a{
 
     @include for-768{
       padding: 15px;
-      margin: 0 -15px;
-      width: calc(100% + 30px);
     }
 
     &.submitted {
+
       .consultation__message{
         z-index: 1;
         visibility: visible;
@@ -1827,8 +1916,7 @@ a{
       }
 
       @include for-992{
-        width: 100%;
-        margin: 0;
+
       }
     }
   }
@@ -1869,7 +1957,12 @@ a{
       font-size: 24px;
       color: $blue;
       font-weight: 600;
+
+      @include for-992{
+        font-size: 16px;
+      }
     }
+
   }
 
   &__title{
@@ -1926,6 +2019,9 @@ a{
   }
 
   &__btn-i{
+    @include for-550{
+      max-width: 100%;
+    }
 
   }
 
@@ -2070,6 +2166,11 @@ a{
       .footer__phone-ico-i{
         background-image: url("../img/ico/phone-plus.svg");
       }
+
+      .footer__phone-number-i{
+        color: $red;
+      }
+
     }
 
     @include for-768{
@@ -2082,13 +2183,14 @@ a{
   }
 
   &__phone-ico-i{
+    display: flex;
     width: 36px;
     height: 36px;
     background-image: url("../img/ico/phone-plus-white.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    transition: .3s;
+    transition: .2s;
   }
 
   &__phone-number{
@@ -2101,11 +2203,11 @@ a{
     font-size: 24px;
     font-weight: 500;
     color: white;
-    transition: .3s;
+    transition: .2s;
 
-    &:hover{
-      color: $red;
-    }
+    //&:hover{
+    //  color: $red;
+    //}
 
     @include for-768{
       font-size: 21px;
