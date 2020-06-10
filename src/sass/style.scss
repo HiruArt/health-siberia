@@ -645,6 +645,7 @@ a{
 
 .page__wrapper{
   position: relative;
+  overflow-x: hidden;
 }
 
 .page__content{
@@ -1008,10 +1009,32 @@ a{
 
   }
 
+  &__bg-block{
+    width: 50%;
+    float: left;
+    height: 840px;
+
+    @include for-1800{
+      height: 780px;
+    }
+
+    @include for-1600{
+      height: 730px;
+    }
+
+    @include for-1400{
+      height: 725px;
+    }
+
+
+    @include for-992{
+      display: none;
+    }
+  }
+
   &__content{
     padding-top: 100px;
     padding-bottom: 100px;
-    max-width: 550px;
     width: 100%;
     margin-left: auto;
 

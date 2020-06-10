@@ -206,11 +206,18 @@ $(document).ready(function(){
   /*validation end*/
 
 
-  AOS.init({
-    duration: 600,
-    delay: 200,
-    disable: "mobile",
-  });
+
+  if($(window).width() < 992) {
+    $('[data-aos]').each(function () {
+      $(this).attr('data-aos', '');
+    });
+  } else {
+    AOS.init({
+      duration: 600,
+      delay: 200,
+    });
+  }
+
 
 });
 
